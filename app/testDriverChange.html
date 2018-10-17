@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>testDriverChange</title>
+
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="../bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="../bower_components/ng-material-datetimepicker/dist/material-datetimepicker.min.css">
+  <link rel="stylesheet" href="../bower_components/angular-material-data-table/dist/md-data-table.min.css">
+  <link rel="stylesheet" href="../bower_components/sweetalert2/dist/sweetalert2.min.css">
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="../bower_components/angular/angular.min.js"></script>
+  <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="../bower_components/angular-messages/angular-messages.min.js"></script>
+  <script src="../bower_components/angular-material/angular-material.min.js"></script>
+  <script src="../bower_components/moment/min/moment-with-locales.min.js"></script>
+  <!--script src="../bower_components/ng-material-datetimepicker/dist/angular-material-datetimepicker.min.js"></script-->
+  <!--script src="../bower_components/ng-material-datetimepicker/dist/angular-material-datetimepicker.min.js.map"></script-->
+  <script src="../bower_components/exporter.js-master/export.js"></script>
+  <script src="../bower_components/angular-material-data-table/dist/md-data-table.min.js"></script>
+  <script src="../bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <script src="scripts/datosController.js"></script>
+  <!-- endbuild -->
+
+</head>
+
+<body>
+
+  <div id="testDriverChange" class="hidden">
+
+    <header class="geotabPageHeader">
+      <h1 class="geotabPageName">test DriverChange <span class="subdued">sub title</span></h1>
+      <div class="pageNameSecondary">
+        <h3 class="geotabSecondaryTitle"><span id="testDriverChange-user"></span></h3>
+      </div>
+    </header>
+    <div ng-controller="accesoDatosController">
+      <br><br>
+      <!--prueba-->
+      <md-toolbar>
+        <div class="md-toolbar-tools">
+          <h2 flex md-truncate> ᕦ(ò_óˇ)ᕤ </h2>
+          <md-button class="md-raised md-accent md-hue-3" aria-label="Learn More" ng-click="consultaDriverChange()">Learn
+            More</md-button>
+          <md-button class="md-raised md-accent md-hue-3" aria-label="Learn More" ng-click="queHacer()">Learn More</md-button>
+        </div>
+      </md-toolbar>
+      <br>
+      <div layout="row" layout-xs="column">
+        <div flex>
+          <div layout="row" layout-wrap>
+            <div flex="100">
+              <br>
+              <div layout="column" flex-offset="5">
+                <md-select class="md-part-11" id="select" name="field " ng-model="dispositivoSeleccionado" placeholder="Seleccionar Vehículo... "
+                  data-md-container-class="selectdemoSelectHeader " ng-init="showOptions = true" my-on-focus="showOptions"
+                  md-on-close="showOptions=false">
+                  <md-select-header layout="column " class="demo-select-header " id="divFechas ">
+                    <md-input-container>
+                      <input id="select2" ng-model="busqueda " type="search " ng-model-options="{debounce: { 'default': 1000,
+                              'blur': 0}} "
+                        placeholder="Buscar vehículo... " class="demo-header-searchbox md-text " ng-keydown="updateSearch($event) " />
+                    </md-input-container>
+                  </md-select-header>
+                  <md-option ng-repeat="dispositivo in lstDeviceGeotab | filter: busqueda " ng-value="{{dispositivo}} ">{{dispositivo.name}}</md-option>
+                </md-select>
+              </div>
+              <div layout="column" flex-offset="0">
+                <md-content layout-padding layout-margin>
+                  <md-datepicker ng-model="Data.start" ng-change="ctrl.onDateChanged()" md-placeholder="Enter date"></md-datepicker>
+                  Del : {{Data.start | date:"yyyy-MM-dd"}}
+                </md-content>
+                <md-content layout-padding layout-margin>
+                  <md-datepicker ng-model="Data.end" ng-change="ctrl.onDateChanged()" md-placeholder="Enter date"></md-datepicker>
+                  Al : {{Data.end | date:"yyyy-MM-dd"}}
+                </md-content>
+              </div>
+              <br>
+              <md-card>
+                <md-toolbar class="md-table-toolbar md-default">
+                  <div class="md-toolbar-tools">
+                    <h2 flex md-truncate></h2>
+                    <md-button class="md-raised md-accent md-hue-3" aria-label="Learn More" ng-click="descargar()">Learn
+                      More</md-button>
+                  </div>
+                </md-toolbar>
+                <md-table-container>
+                  <table md-table md-row-select ng-model="selected" md-progress="promise" id="driverChange">
+                    <thead md-head md-order="query.order">
+                      <tr md-row>
+                        <th md-column md-order-by="nameToLower"><span class="md-caption">Id Usuario</span></th>
+                        <th md-column md-numeric md-order-by="calories.value"><span>Nombre</span></th>
+                        <th md-column md-numeric>NFC</th>
+                        <th md-column md-numeric>Fecha de registro</th>
+                        <th md-column md-numeric>Latitude</th>
+                        <th md-column md-numeric>Longitude</th>
+                      </tr>
+                    </thead>
+                    <tbody md-body>
+                      <tr md-row md-select="selected" md-select-id="name" md-auto-select ng-repeat="totalEventos in eventos track by $index">
+                        <td md-cell>{{totalEventos.idUser}}</td>
+                        <td md-cell>{{totalEventos.nombre}}</td>
+                        <td md-cell>{{totalEventos.nfc}}</td>
+                        <td md-cell>{{totalEventos.fechaEve}}</td>
+                        <td md-cell>{{totalEventos.latitude}}</td>
+                        <td md-cell>{{totalEventos.longitude}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </md-table-container>
+
+                <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page"
+                  md-total="{{eventos.length}}" md-page-select></md-table-pagination>
+              </md-card>
+            </div>
+          </div>
+        </div>
+        <div flex style="background:rgb(214, 213, 213)">
+          <br>
+          <div class="container" ng-class="{'visible' : !vm.activated}">
+            <md-progress-linear md-mode="query" ng-disabled="!vm.showList[1]"></md-progress-linear>
+            <div class="bottom-block">
+              <span>Loading application libraries...</span>
+            </div>
+          </div>
+        </div>
+        <!--finPrueba-->
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

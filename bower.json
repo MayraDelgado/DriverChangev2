@@ -1,0 +1,10 @@
+{
+  "name": "testdriverchange",
+  "private": true,
+  "dependencies": {
+    "angular-material-data-table": "^0.10.10"
+  },
+  "devDependencies": {
+    "dialog-polyfill": "^0.4.3"
+  }
+}

@@ -1,0 +1,41 @@
+.hidden {
+    display: none;
+}
+
+.md-default-theme .md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator,
+.md-calendar-date.md-calendar-selected-date .md-calendar-date-selection-indicator,
+.md-default-theme .md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator,
+.md-calendar-date.md-focus.md-calendar-selected-date .md-calendar-date-selection-indicator {
+    background: #1f1950b0;
+    color: rgba(255, 255, 255, 0.87);
+    border-color: transparent;
+}
+
+.md-default-theme .md-calendar-day-header,
+.md-calendar-day-header {
+    background: #1f1950b0;
+    color: rgba(239, 236, 236, 0.94);
+}
+
+.md-select-menu-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    opacity: 0;
+    display: none;
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px);
+}
+
+md-content.md-default-theme,
+md-content {
+    color: rgba(0, 0, 0, 0.87);
+    background-color: rgba(250, 250, 250, 0);
+}
+
+md-toolbar.md-table-toolbar.md-default-theme:not(.md-menu-toolbar).md-default,
+md-toolbar.md-table-toolbar:not(.md-menu-toolbar).md-default {
+    background-color: #1f1950;
+    color: rgba(0, 0, 0, .87);
+}

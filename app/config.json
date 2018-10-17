@@ -1,0 +1,21 @@
+{
+  "name": "testDriverChange",
+  "supportEmail": "",
+  "version": "0.0.1",
+  "items": [{
+    
+    "url": "testDriverChange.html",
+    "path": "",
+    "menuName": {
+      "en": "testDriverChange"
+    },
+    
+    "icon": "images/icon.svg"
+  }],
+  "dev": {
+    "root": "testDriverChange",
+    "dist": {
+      "host": "https://www.example.com/myaddin/"
+    }
+  }
+}
