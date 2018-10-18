@@ -39,8 +39,20 @@ md-toolbar.md-table-toolbar:not(.md-menu-toolbar).md-default {
     background-color: #1f1950;
     color: rgba(0, 0, 0, .87);
 }
-element.style {
-    left: 140px;
-    top: 258px;
+.md-datepicker-calendar-pane {
+    position: absolute;
+    top: 0;
+    left: -100%;
     z-index: 1000;
+    border-width: 1px;
+    border-style: solid;
+    background: transparent;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transition: -webkit-transform .2s cubic-bezier(.25,.8,.25,1);
+    transition: -webkit-transform .2s cubic-bezier(.25,.8,.25,1);
+    transition: transform .2s cubic-bezier(.25,.8,.25,1);
+    transition: transform .2s cubic-bezier(.25,.8,.25,1),-webkit-transform .2s cubic-bezier(.25,.8,.25,1);
 }
