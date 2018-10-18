@@ -39,3 +39,8 @@ md-toolbar.md-table-toolbar:not(.md-menu-toolbar).md-default {
     background-color: #1f1950;
     color: rgba(0, 0, 0, .87);
 }
+element.style {
+    left: 140px;
+    top: 258px;
+    z-index: 1000;
+}
